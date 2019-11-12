@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: smokey-server
+  name: smokey-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: smokey-server
+  template:
+    metadata:
+       labels:
+        run: smokey-server
+    spec:
+      containers:
+      - image: gcr.io/devops-certification-lab/smokey-server
+        name: smokey-server
