@@ -41,6 +41,6 @@ node {
     }
 
     stage('service') {
-        sh "kubectl apply -f smokey-service.yaml"
+        sh "kubectl apply -f smokey_service.yaml"
     }
 }
