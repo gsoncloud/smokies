@@ -12,6 +12,17 @@ node {
             sh 'mvn -B -DskipTests clean package sonar:sonar'
         } // submitted SonarQube taskId is automatically attached to the pipeline context
     }
+    
+     stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
     stage('Build') { 
         sh 'mvn -B -DskipTests clean package' 
                
