@@ -38,7 +38,7 @@ node {
     
     stage('Replace build number'){
                        
-        sh 'sed -i "s/BUILD/${env.BUILD_ID}/g" server_dep.yaml'
+        sh 'sed -i "s/BUILD/${BUILD_NUMBER}/g" server_dep.yaml'
                    
     }
 
