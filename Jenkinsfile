@@ -35,6 +35,13 @@ node {
     stage('connect to k8s cluster'){
         sh "gcloud container clusters get-credentials devops-cert-lab --zone us-central1-a --project devops-certification-lab"
     }
+    
+    stage('Replace build number'){
+                       
+        sh 'sed -i "s/BUILD/${env.BUILD_ID}/g" server_dep.yaml'
+                   
+    }
+
 
      stage('deploy') {
         sh "kubectl apply -f server_dep.yaml"

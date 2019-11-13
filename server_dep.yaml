@@ -15,5 +15,5 @@ spec:
         run: smokey-server
     spec:
       containers:
-      - image: gcr.io/devops-certification-lab/smokey-server
+      - image: gcr.io/devops-certification-lab/smokey-server:BUILD
         name: smokey-server

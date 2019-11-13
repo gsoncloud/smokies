@@ -32,7 +32,7 @@ public class BlogRepositoryTest {
 
 	@Test
 	public void getAllBlogsTest() throws Exception {
-		Blog blog = subject.save(new Blog("Unit test title", "unit test post"));
+		subject.save(new Blog("Unit test title", "unit test post"));
 		List<Blog> blogs = subject.findAll();
 		assertFalse(blogs.isEmpty());
 		assertNotNull(blogs.get(0));

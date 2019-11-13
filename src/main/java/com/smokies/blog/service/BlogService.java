@@ -38,20 +38,10 @@ public class BlogService {
 	}
 
 	public Blog createOrUpdateBlog(Blog entity) throws RecordNotFoundException {
-		Optional<Blog> blog = repository.findById(entity.getId());
 
-		if (blog.isPresent()) {
-			Blog newEntity = blog.get();
-			newEntity.setBlogPost(entity.getBlogPost());
-			newEntity.setBlogTitle(entity.getBlogTitle());
-			newEntity = repository.save(newEntity);
+		Blog blog = repository.save(entity);
 
-			return newEntity;
-		} else {
-			entity = repository.save(entity);
-
-			return entity;
-		}
+		return blog;
 	}
 
 	public void deleteBlogById(Long id) throws RecordNotFoundException {
